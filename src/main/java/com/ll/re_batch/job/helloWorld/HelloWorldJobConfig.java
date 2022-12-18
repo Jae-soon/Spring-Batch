@@ -26,6 +26,7 @@ public class HelloWorldJobConfig {
     public Job helloWorldJob() {
         return jobBuilderFactory.get("helloWorldJob")
                 // Job이 성공하면 다시 실행되지 않는다. 하지만, increment로 다시 실행시킬 수 있다.
+                // 성공한 부분을 재실행 하고싶지 않을 경우 빼주면 된다.
                 .incrementer(new RunIdIncrementer()) // 강제로 매번 다른 ID를 실행시에 파라미터로 부여
                 .start(helloWorldStep1())
                 .next(helloWorldStep2())
