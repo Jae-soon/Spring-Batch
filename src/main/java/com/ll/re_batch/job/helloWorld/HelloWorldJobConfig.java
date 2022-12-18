@@ -65,6 +65,11 @@ public class HelloWorldJobConfig {
         return (contribution, chunkContext) -> {
             System.out.println("tasklet2!");
 
+            // 실패는 Exception 실행시키면 된다.
+            if ( true ) {
+                throw new Exception("실패 : 헬로월드 테스클릿 2");
+            }
+
             return RepeatStatus.FINISHED;
         };
     }
